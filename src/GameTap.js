@@ -60,7 +60,7 @@ const SmallerImage = styled.img`
 `;
 
 const Explain = styled.div`
-  margin-top: 40px;
+  margin-top: 50px;
 `;
 
 const Had  = styled.h3`
@@ -72,7 +72,7 @@ const Had  = styled.h3`
 `;
 
 const BeerImage = styled.img`
-  width: 75px;
+  width: 60px;
   margin-top: 25px;
   margin-right: ${(props) => props.last ? '0px' : '10px'};
 `;
