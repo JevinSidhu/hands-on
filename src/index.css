@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css?family=Noto+Serif+KR:600,700,900');
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #7210C7;
+  color: #FFF;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: left;
+  margin-left: 1.5em;
+  height: 600px;
+}
+
+body h1 {
+  font-size: 48px;
+  font-weight: 900;
+  margin: 0;
+  text-decoration: underline;
+}
+
+body p {
+  font-family: 'Avenir';
+  font-size: 15px;
+  margin: 8px 0 0 0;
+  line-height: 1.7;
+}
+
+body button {
+  font-weight: 900;
+}
+
+.text {
+  width: 300px;
+  margin: 5px;
+  text-align: left;
+}
+
+.submit {
+  background-color: #FFF;
+  border: none;
+  padding: 18px;
+  margin: 20px 0px;
+  color: #313131;
+  font-size: 15px;
+  appearance: none;
+  box-shadow: none;
+  border-radius: 12px;
+  box-shadow: 3px 3px #313131;
+}
+
+.wheely {
+  position: absolute;
+  bottom: 0;
+  left: -40px;
+  width: 300px;
+}
