@@ -4,6 +4,7 @@ import awakeWheely from './awake-wheel.png';
 import happyWheely from './happy-wheel.png';
 import sadWheely from './sad-wheel-non-circle.png';
 import beerCan from './beer-can.png';
+import { Link } from "react-router-dom";
 
 injectGlobal`
   @font-face {
@@ -84,6 +85,22 @@ const NumOfBeers  = styled.h3`
   opacity: 0.7;
 `;
 
+const Option = styled.button`
+font-family: 'Avenir';
+font-weight: 900;
+background-color: #FFF;
+border: none;
+padding: 18px;
+margin: 20px 0px;
+color: #313131;
+font-size: 15px;
+appearance: none;
+box-shadow: none;
+border-radius: 12px;
+box-shadow: 3px 3px #313131;
+margin-left: 20px;
+`
+
 class GameTap extends Component {
   constructor(props) {
     super(props);
@@ -144,6 +161,12 @@ class GameTap extends Component {
                 <BeerImage src={beerCan} />
                 <BeerImage last src={beerCan} />
                 <NumOfBeers>3 BEERS</NumOfBeers>
+                <Link to="/uber">
+                  <Option> Uber </Option>
+                </Link>
+                <Link to="/handsOn">
+                  <Option> Activate Hands On </Option>
+                </Link>
               </Explain>
             </ContentWrapper>
           </Wrapper>)
