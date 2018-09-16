@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import wheely from './wheely.png';
-import moon from './moon.png';
-import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Home from './Home';
 import GameStart from './GameStart';
 import GameTap from './GameTap';

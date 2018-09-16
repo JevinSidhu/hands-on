@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import styled, { injectGlobal } from 'styled-components';
 import awakeWheely from './awake-wheel.png';
+import happyWheely from './happy-wheel.png';
+import sadWheely from './sad-wheel.png';
 
 injectGlobal`
   @font-face {
@@ -15,7 +17,7 @@ injectGlobal`
 `
 
 const Wrapper = styled.div`
-  background-color: #EAB038;
+  background-color: ${ (props) => props.bg };
   color: #FFF;
   position: absolute;
   top: 0;
@@ -46,14 +48,62 @@ const Image = styled.img`
 `
 
 class GameTap extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      tapped: false,
+      startTime: new Date(),
+      total: undefined,
+    };
+  }
+
+  wheelTapped = () => {
+    this.setState({
+      tapped: true,
+    });
+    this.end();
+  };
+
+  end = () => {
+    const endTime = new Date();
+    const timeDiff = endTime - this.state.startTime;
+    const ms = Math.round(timeDiff);
+    console.log(ms);
+
+    this.setState({
+      total: ms,
+    });
+  }
+
   render() {
-    return (
-      <Wrapper>
+    const notTapped = () =>
+      (<Wrapper bg={'#EAB038'}>
         <ContentWrapper>
-          <Image src={awakeWheely} />
+          <Image onClick={this.wheelTapped} src={awakeWheely} />
           <Header>TAP THE WHEEL!</Header>
         </ContentWrapper>
-      </Wrapper>
+      </Wrapper>);
+
+      const tapped = () => {
+        if (this.state.total < 700) {
+        return (<Wrapper bg={'#4BCF7F'}>
+          <ContentWrapper>
+            <Image src={happyWheely} />
+            <Header>SUCCESS</Header>
+          </ContentWrapper>
+        </Wrapper>)
+        } else {
+          return (<Wrapper bg={'#BB2E2E'}>
+            <ContentWrapper>
+              <Image src={sadWheely} />
+              <Header>FAILURE</Header>
+            </ContentWrapper>
+          </Wrapper>)
+        };
+      }
+    return (
+      this.state.tapped ? tapped() : notTapped()
     );
   }
 }

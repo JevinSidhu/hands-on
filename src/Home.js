@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import wheely from './wheely.png';
-import moon from './moon.png';
 import { Link } from "react-router-dom";
 import styled, { injectGlobal } from 'styled-components'
 
