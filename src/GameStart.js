@@ -58,6 +58,10 @@ class GameStart extends Component {
     return Math.random() * (max - min) + min;
   };
 
+  wheelTapped = () => {
+    alert('too early!');
+  };
+
   render() {
     const ms = this.getRandomArbitrary(3, 8) * 1000;
     console.log(ms);
@@ -70,7 +74,7 @@ class GameStart extends Component {
       <Wrapper>
         {this.state.redirect ? <Redirect to="/tap"/> : ''}
         <ContentWrapper>
-          <Image src={sleepyWheely} />
+          <Image onClick={this.wheelTapped} src={sleepyWheely} />
           <Header>TAP THE WHEEL WHEN HE’S AWAKE</Header>
         </ContentWrapper>
       </Wrapper>

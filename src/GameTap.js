@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import styled, { injectGlobal } from 'styled-components';
 import awakeWheely from './awake-wheel.png';
 import happyWheely from './happy-wheel.png';
-import sadWheely from './sad-wheel.png';
+import sadWheely from './sad-wheel-non-circle.png';
+import beerCan from './beer-can.png';
 
 injectGlobal`
   @font-face {
@@ -36,16 +37,52 @@ const ContentWrapper = styled.div`
 
 const Header = styled.h1`
   font-family: 'Avenir';
-  font-size: 30px;
-  margin-top: 3.5em;
-  padding: 25px;
+  font-size: 35px;
   margin-bottom: 0;
+`;
+
+const SubHeader = styled.h1`
+  font-family: 'Avenir';
+  margin: 0;
+  font-size: 22px;
+  opacity: 0.7;
 `;
 
 const Image = styled.img`
   width: 250px;
   margin-top: 250px;
-`
+`;
+
+const SmallerImage = styled.img`
+  width: 80px;
+  margin-top: 25px;
+  margin-bottom: -5px;
+`;
+
+const Explain = styled.div`
+  margin-top: 40px;
+`;
+
+const Had  = styled.h3`
+  font-family: 'Avenir';
+  margin: 40px 0 0 0;
+  font-size: 18px;
+  opacity: 0.7;
+  text-transform: uppercase;
+`;
+
+const BeerImage = styled.img`
+  width: 75px;
+  margin-top: 25px;
+  margin-right: ${(props) => props.last ? '0px' : '10px'};
+`;
+
+const NumOfBeers  = styled.h3`
+  font-family: 'Avenir';
+  margin: 15px 0 0 0;
+  font-size: 35px;
+  opacity: 0.7;
+`;
 
 class GameTap extends Component {
   constructor(props) {
@@ -91,13 +128,23 @@ class GameTap extends Component {
           <ContentWrapper>
             <Image src={happyWheely} />
             <Header>SUCCESS</Header>
+            <SubHeader>{this.state.total / 1000 + ' sec'}</SubHeader>
           </ContentWrapper>
         </Wrapper>)
         } else {
           return (<Wrapper bg={'#BB2E2E'}>
             <ContentWrapper>
-              <Image src={sadWheely} />
+              <SmallerImage src={sadWheely} />
               <Header>FAILURE</Header>
+              <SubHeader>{this.state.total / 1000 + ' sec'}</SubHeader>
+
+              <Explain>
+                <Had>It's As If You Had:</Had>
+                <BeerImage src={beerCan} />
+                <BeerImage src={beerCan} />
+                <BeerImage last src={beerCan} />
+                <NumOfBeers>3 BEERS</NumOfBeers>
+              </Explain>
             </ContentWrapper>
           </Wrapper>)
         };

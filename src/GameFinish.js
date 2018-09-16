@@ -71,7 +71,7 @@ class GameFinish extends Component {
         {this.state.redirect ? <Redirect to="/tap"/> : ''}
         <ContentWrapper>
           <Image src={sleepyWheely} />
-          <Header>SUCCES</Header>
+          <Header>SUCCESS</Header>
         </ContentWrapper>
       </Wrapper>
     );
